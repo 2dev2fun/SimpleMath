@@ -1,0 +1,27 @@
+# Copyright (C) 2020 Maxim, 2dev2fun@gmail.com. All rights reserved.
+
+add_executable(SimpleMathTest
+	"Main.cpp"
+	"Math/Entity/Matrix2x2.cpp"
+	"Math/Entity/Matrix2x2/Function.cpp"
+	"Math/Entity/Matrix2x2/Operator.cpp"
+	"Math/Entity/Matrix3x3.cpp"
+	"Math/Entity/Matrix3x3/Function.cpp"
+	"Math/Entity/Matrix3x3/Operator.cpp"
+	"Math/Entity/Matrix4x4.cpp"
+	"Math/Entity/Matrix4x4/Function.cpp"
+	"Math/Entity/Matrix4x4/Operator.cpp"
+	"Math/Entity/Quaternion.cpp"
+	"Math/Entity/Quaternion/Function.cpp"
+	"Math/Entity/Quaternion/Operator.cpp"
+	"Math/Entity/Vector2.cpp"
+	"Math/Entity/Vector2/Function.cpp"
+	"Math/Entity/Vector2/Operator.cpp"
+	"Math/Entity/Vector3.cpp"
+	"Math/Entity/Vector3/Function.cpp"
+	"Math/Entity/Vector3/Operator.cpp"
+	"Math/Entity/Vector4.cpp"
+	"Math/Entity/Vector4/Function.cpp"
+	"Math/Entity/Vector4/Operator.cpp")
+
+target_link_libraries(SimpleMathTest SimpleMath)
