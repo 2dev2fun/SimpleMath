@@ -17,6 +17,7 @@ git submodule add https://github.com/2dev2fun/SimpleMath.git
 And attach SimpleMath library to your project in CMake.
 
 ```cmake
+include_directories(modules/SimpleMath/source)
 add_subdirectory(modules/SimpleMath)
 target_link_libraries(${PROJECT_NAME} SimpleMath)
 ```
