@@ -8,6 +8,6 @@ def Settings(**kwargs):
         '-Wall',
         '-Wextra'
         '-Werror',
-        '-isystem', 'source',
+        '-isystem', 'include',
         '-isystem', 'library/catch2/include',
     ] }

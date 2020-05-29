@@ -1,18 +1,26 @@
 // Copyright (C) 2020 Maxim, 2dev2fun@gmail.com. All rights reserved.
 
+#pragma once
+
 #include "Math/Entity/Matrix4x4.h"
 #include "Math/Entity/Quaternion.h"
 #include "Math/Entity/Vector3.h"
 #include "Math/Entity/Vector3/Function.h"
 #include "Math/Entity/Vector3/Operator.h"
-#include "Math/System/Render.h"
 
 #include <cmath>
 
 namespace simple {
 namespace math {
 
-Mat4 lookAt(Vec3 const& eye, Vec3 const& target, Vec3 const& up) {
+Mat4 lookAt(Vec3 const& eye, Vec3 const& target, Vec3 const& up);
+Mat4 perspective(float fov, float widht, float height, float near, float far);
+Vec3 transform(Vec3 const& vector, Quat const& rotation);
+Mat4 createTranslation(Vec3 const& translation);
+Mat4 createRotation(Quat const& rotation);
+Mat4 createScale(float scale);
+
+inline Mat4 lookAt(Vec3 const& eye, Vec3 const& target, Vec3 const& up) {
 	Vec3 forward = math::normalize(eye - target);
 	Vec3 left    = math::normalize(math::cross(up, forward));
 	Vec3 newUp   = math::cross(forward, left);
@@ -26,7 +34,7 @@ Mat4 lookAt(Vec3 const& eye, Vec3 const& target, Vec3 const& up) {
 			Vec4(translation.x, translation.y, translation.z, 1));
 }
 
-Mat4 perspective(float fov, float widht, float height, float near, float far) {
+inline Mat4 perspective(float fov, float widht, float height, float near, float far) {
 	float const aspect      = widht / height;
 	float const tanfov      = std::tan(fov / 2.0f);
 	float const invertRange = 1.0f / (far - near);
@@ -40,12 +48,12 @@ Mat4 perspective(float fov, float widht, float height, float near, float far) {
 	return Mat4(Vec4(a, 0, 0, 0), Vec4(0, b, 0, 0), Vec4(0, 0, c, d), Vec4(0, 0, e, 0));
 }
 
-Vec3 transform(Vec3 const& vector, Quat const& rotation) {
+inline Vec3 transform(Vec3 const& vector, Quat const& rotation) {
 	Vec3 qv(rotation.x, rotation.y, rotation.z);
 	return vector + 2.0f * math::cross(qv, math::cross(qv, vector) + rotation.w * vector);
 }
 
-Mat4 createTranslation(Vec3 const& translation) {
+inline Mat4 createTranslation(Vec3 const& translation) {
 	return Mat4(
 		Vec4(1,             0,             0,             0),
 		Vec4(0,             1,             0,             0),
@@ -53,7 +61,7 @@ Mat4 createTranslation(Vec3 const& translation) {
 		Vec4(translation.x, translation.y, translation.z, 1));
 }
 
-Mat4 createRotation(Quat const& rotation) {
+inline Mat4 createRotation(Quat const& rotation) {
 	Mat4 output;
 
 	output[0][0] = 1.0f - 2.0f * rotation.y * rotation.y - 2.0f * rotation.z * rotation.z;
@@ -79,7 +87,7 @@ Mat4 createRotation(Quat const& rotation) {
 	return output;
 }
 
-Mat4 createScale(float scale) {
+inline Mat4 createScale(float scale) {
 	return Mat4(
 		Vec4(scale, 0,     0,     0),
 		Vec4(0,     scale, 0,     0),

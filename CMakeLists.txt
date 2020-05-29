@@ -14,7 +14,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -O2")
 
-include_directories("source" "library/catch2/include")
+include_directories("include" "library/catch2/include")
 
-add_subdirectory(source)
 add_subdirectory(test)

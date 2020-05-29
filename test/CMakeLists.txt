@@ -23,5 +23,3 @@ add_executable(SimpleMathTest
 	"Math/Entity/Vector4.cpp"
 	"Math/Entity/Vector4/Function.cpp"
 	"Math/Entity/Vector4/Operator.cpp")
-
-target_link_libraries(SimpleMathTest SimpleMath)

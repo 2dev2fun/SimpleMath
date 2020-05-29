@@ -1,6 +1,6 @@
 # SimpleMath
 
-This is math library for Simple engine.
+This is math library for Simple engine. It's header-only library.
 
 # How to use it
 
@@ -14,10 +14,10 @@ git submodule add https://github.com/2dev2fun/SimpleMath.git
 
 ```
 
-And attach SimpleMath library to your project in CMake.
+in CMakeLists.txt. That's all.
 
-```cmake
-include_directories(modules/SimpleMath/source)
-add_subdirectory(modules/SimpleMath)
-target_link_libraries(${PROJECT_NAME} SimpleMath)
+```
+
+include_directories("modules/SimpleMath/include")
+
 ```
