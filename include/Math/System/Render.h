@@ -18,6 +18,9 @@ Mat4 perspective(float fov, float widht, float height, float near, float far);
 Vec3 transform(Vec3 const& vector, Quat const& rotation);
 Mat4 createTranslation(Vec3 const& translation);
 Mat4 createRotation(Quat const& rotation);
+Mat4 createRotationX(float theta);
+Mat4 createRotationY(float theta);
+Mat4 createRotationZ(float theta);
 Mat4 createScale(float scale);
 
 inline Mat4 lookAt(Vec3 const& eye, Vec3 const& target, Vec3 const& up) {
@@ -85,6 +88,30 @@ inline Mat4 createRotation(Quat const& rotation) {
 	output[3][3] = 1.0f;
 
 	return output;
+}
+
+inline Mat4 createRotationX(float theta) {
+	return Mat4(
+			Vec4(1.0f,  0.0f,            0.0f,            0.0f),
+			Vec4(0.0f,  std::cos(theta), std::sin(theta), 0.0f),
+			Vec4(0.0f, -std::sin(theta), std::cos(theta), 0.0f),
+			Vec4(0.0f,  0.0f,            0.0f,            1.0f));
+}
+
+inline Mat4 createRotationY(float theta) {
+	return Mat4(
+			Vec4( std::cos(theta), 0.0f, std::sin(theta), 0.0f),
+			Vec4( 0.0f,            1.0f, 0.0f,            0.0f),
+			Vec4(-std::sin(theta), 0.0f, std::cos(theta), 0.0f),
+			Vec4( 0.0f,            0.0f, 0.0f,            1.0f));
+}
+
+inline Mat4 createRotationZ(float theta) {
+	return Mat4(
+			Vec4( std::cos(theta), std::sin(theta), 0.0f, 0.0f),
+			Vec4(-std::sin(theta), std::cos(theta), 0.0f, 0.0f),
+			Vec4( 0.0f,            0.0f,            1.0f, 0.0f),
+			Vec4( 0.0f,            0.0f,            0.0f, 1.0f));
 }
 
 inline Mat4 createScale(float scale) {
