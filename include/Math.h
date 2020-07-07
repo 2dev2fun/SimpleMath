@@ -83,11 +83,11 @@ inline bool nearZero(float value, float epsilon = 0.001f) {
 	return abs(value) <= epsilon ? true : false;
 }
 
-inline float toRadians(float degrees) {
+inline float radians(float degrees) {
 	return degrees * PI / 180.0f;
 }
 
-inline float toDegrees(float radians) {
+inline float degrees(float radians) {
 	return radians * 180.0f / PI;
 }
 
