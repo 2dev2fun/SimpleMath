@@ -41,16 +41,16 @@ Matrix4x4<T> lookAt(Vector3<T> const& eye, Vector3<T> const& target, Vector3<T> 
 }
 
 template <typename T>
-Matrix4x4<T> perspective(float fov, float widht, float height, float near, float far) {
-	float const aspect      = widht / height;
-	float const tanfov      = std::tan(fov / 2.0f);
-	float const invertRange = 1.0f / (far - near);
+Matrix4x4<T> perspective(T fov, T width, T height, T near, T far) {
+	const T aspect      = width / height;
+	const T tanfov      = std::tan(fov / 2.0f);
+	const T invertRange = 1.0f / (far - near);
 
-	float const a = 1.0f / (aspect * tanfov);
-	float const b = 1.0f / tanfov;
-	float const c = -(far + near) * invertRange;
-	float const d = -1;
-	float const e = -2 * far * near * invertRange;
+	const T a = 1.0f / (aspect * tanfov);
+	const T b = 1.0f / tanfov;
+	const T c = -(far + near) * invertRange;
+	const T d = -1;
+	const T e = -2 * far * near * invertRange;
 
 	return Matrix4x4<T>(
 			Vector4<T>(a, 0, 0, 0),
