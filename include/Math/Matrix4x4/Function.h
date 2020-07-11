@@ -123,7 +123,7 @@ Matrix4x4<T> rotateZ(T theta) {
 }
 
 template <typename T>
-Matrix4x4<T> scale(float scale) {
+Matrix4x4<T> scale(T scale) {
 	return Matrix4x4<T>(
 		Vector4<T>(scale, 0,     0,     0    ),
 		Vector4<T>(0,     scale, 0,     0    ),
