@@ -5,6 +5,7 @@
 #include "Math/Vector3.h"
 
 #include <cmath>
+#include <random>
 
 namespace simple {
 namespace math {
@@ -89,6 +90,10 @@ inline float radians(float degrees) {
 
 inline float degrees(float radians) {
 	return radians * 180.0f / PI;
+}
+
+inline float linearRandom(float min, float max) {
+	return min + (max - min) * static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX);
 }
 
 } // namespace math

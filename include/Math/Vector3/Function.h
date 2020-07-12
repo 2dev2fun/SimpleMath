@@ -7,6 +7,7 @@
 
 #include <cassert>
 #include <cmath>
+#include <random>
 
 namespace simple {
 namespace math {
@@ -50,6 +51,15 @@ template <typename T>
 Vector3<T> transform(Vector3<T> const& vector, Quaternion<T> const& rotation) {
 	Vec3 qv(rotation.x, rotation.y, rotation.z);
 	return vector + 2.0f * cross(qv, cross(qv, vector) + rotation.w * vector);
+}
+
+template <typename T>
+Vector3<T> linearRandom(Vector3<T> const& min, Vector3<T> const& max) {
+	return Vector3<T> {
+		min.x + (max.x - min.x) * static_cast<T>(std::rand()) / static_cast<T>(RAND_MAX),
+		min.y + (max.y - min.y) * static_cast<T>(std::rand()) / static_cast<T>(RAND_MAX),
+		min.z + (max.z - min.z) * static_cast<T>(std::rand()) / static_cast<T>(RAND_MAX)
+	};
 }
 
 } // namespace math
