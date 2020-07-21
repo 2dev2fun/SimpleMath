@@ -20,7 +20,9 @@ private:
 	Vector4<T> mColumns[4];
 };
 
-using Mat4 = Matrix4x4<float>;
+using Mat4  = Matrix4x4<float>;
+using Mat4f = Matrix4x4<float>;
+using Mat4i = Matrix4x4<int32_t>;
 
 template <typename T>
 Matrix4x4<T>::Matrix4x4() {

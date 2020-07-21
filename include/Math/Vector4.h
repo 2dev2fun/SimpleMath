@@ -22,7 +22,9 @@ public:
 	T w;
 };
 
-using Vec4 = Vector4<float>;
+using Vec4  = Vector4<float>;
+using Vec4f = Vector4<float>;
+using Vec4i = Vector4<int32_t>;
 
 template <typename T>
 Vector4<T>::Vector4() : x(0), y(0), z(0), w(0) {}

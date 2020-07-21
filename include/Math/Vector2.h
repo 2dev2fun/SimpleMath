@@ -20,7 +20,9 @@ public:
 	T y;
 };
 
-using Vec2 = Vector2<float>;
+using Vec2  = Vector2<float>;
+using Vec2f = Vector2<float>;
+using Vec2i = Vector2<int32_t>;
 
 template <typename T>
 Vector2<T>::Vector2() : x(0), y(0) {}

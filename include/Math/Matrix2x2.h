@@ -20,7 +20,9 @@ private:
 	Vector2<T> mColumns[2];
 };
 
-using Mat2 = Matrix2x2<float>;
+using Mat2  = Matrix2x2<float>;
+using Mat2f = Matrix2x2<float>;
+using Mat2i = Matrix2x2<int32_t>;
 
 template <typename T>
 Matrix2x2<T>::Matrix2x2() {

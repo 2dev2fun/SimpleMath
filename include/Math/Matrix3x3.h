@@ -20,7 +20,9 @@ private:
 	Vector3<T> mColumns[3];
 };
 
-using Mat3 = Matrix3x3<float>;
+using Mat3  = Matrix3x3<float>;
+using Mat3f = Matrix3x3<float>;
+using Mat3i = Matrix3x3<int32_t>;
 
 template <typename T>
 Matrix3x3<T>::Matrix3x3() {

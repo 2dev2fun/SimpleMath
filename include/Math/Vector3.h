@@ -21,7 +21,9 @@ public:
 	T z;
 };
 
-using Vec3 = Vector3<float>;
+using Vec3  = Vector3<float>;
+using Vec3f = Vector3<float>;
+using Vec3i = Vector3<int32_t>;
 
 template <typename T>
 Vector3<T>::Vector3() : x(0), y(0), z(0) {}
